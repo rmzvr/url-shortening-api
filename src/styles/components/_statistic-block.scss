@@ -1,0 +1,36 @@
+.statistic-block {
+    position: relative;
+
+    background-color: var(--clr-neutral-white);
+    border-radius: 0.28em;
+
+    padding: 4.28em 1.8em 2.28em;
+}
+
+.statistic-block__img {
+    position: absolute;
+    top: -2.75rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+
+    background-color: var(--clr-primary-dark-violet);
+}
+
+.statistic-block__title {
+    color: var(--clr-neutral-dark);
+
+    margin-bottom: 0.55em;
+}
+
+.statistic-block__description {
+    color: var(--clr-neutral-grayish-violet);
+}
