@@ -12,28 +12,28 @@
 <body>
     <div class="container">
         <header class="header">
-            <a href="#">
+            <a class="header__logo" href="#">
                 <img src="/images/logo.svg" alt="logo" />
             </a>
 
-            <nav style="display: none">
-                <ul>
-                    <li>
+            <nav class="nav">
+                <ul class="nav__links">
+                    <li class="nav__link">
                         <a href="#">Features</a>
                     </li>
-                    <li>
+                    <li class="nav__link">
                         <a href="#">Pricing</a>
                     </li>
-                    <li>
+                    <li class="nav__link">
                         <a href="#">Resources</a>
                     </li>
                 </ul>
-                <ul>
-                    <li>
+                <ul class="nav__login">
+                    <li class="nav__link">
                         <a href="#">Login</a>
                     </li>
                     <li>
-                        <a href="#">Sign Up</a>
+                        <a class="btn btn--size--small btn--style--rounded btn--theme--grass" href="#">Sign Up</a>
                     </li>
                 </ul>
             </nav>
@@ -69,9 +69,10 @@
     </div>
 
     <main>
-        <section class="intro">
-            <img src="/images/illustration-working.svg" alt="illustration of a girl at a computer" class="intro__img" />
-            <div class="container">
+        <div class="container">
+            <section class="intro">
+                <img class="intro__img" src="/images/illustration-working.svg"
+                    alt="illustration of a girl at a computer" />
                 <div class="intro__content">
                     <h1 class="intro__title">More than just shorter links</h1>
                     <p class="intro__description">Build your brand’s recognition and get detailed insights on how your
@@ -79,70 +80,59 @@
                     <a class="btn btn--size--medium btn--style--rounded btn--theme--grass" href="#shortener__header">Get
                         Started</a>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
         <div class="color-wrapper">
             <div class="container">
                 <div class="shortener">
                     <header class="shortener__header" id="shortener__header">
-                        <form action="POST">
-                            <label>
-                                <input class="input" type="text" placeholder="Shorten a link here..." />
-                                <span class="input-error">Please add a link</span>
-                            </label>
-                            <input class="btn btn--size--fat-long btn--style--sharpened btn--theme--grass" type="submit"
-                                value="Shorten It!" />
+                        <form class="shortener__form" action="POST">
+                            <input class="input" type="text" placeholder="Shorten a link here..." />
+                            <span class="shortener__error">Please add a link</span>
+                            <input
+                                class="shortener__btn btn btn--size--fat-long btn--style--sharpened btn--theme--grass"
+                                type="submit" value="Shorten It!" />
                         </form>
                     </header>
 
                     <div class="shortener__body">
                         <div class="shortener__item">
-                            <header class="shortener__item-header">
-                                <span>https://www.frontendmentor.io</span>
-                            </header>
+                            <div class="shortener__item-header">
+                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
+                            </div>
                             <div class="shortener__item-body">
-                                <span>https://rel.ink/k4lKyk</span>
+                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
                                 <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
                                     type="button">Copy</button>
                             </div>
                         </div>
                         <div class="shortener__item">
-                            <header class="shortener__item-header">
-                                <span>https://www.frontendmentor.io</span>
-                            </header>
+                            <div class="shortener__item-header">
+                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
+                            </div>
                             <div class="shortener__item-body">
-                                <span>https://rel.ink/k4lKyk</span>
+                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
                                 <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
                                     type="button">Copy</button>
                             </div>
                         </div>
                         <div class="shortener__item">
-                            <header class="shortener__item-header">
-                                <span>https://www.frontendmentor.io</span>
-                            </header>
+                            <div class="shortener__item-header">
+                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
+                            </div>
                             <div class="shortener__item-body">
-                                <span>https://rel.ink/k4lKyk</span>
+                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
                                 <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
                                     type="button">Copy</button>
                             </div>
                         </div>
                         <div class="shortener__item">
-                            <header class="shortener__item-header">
-                                <span>https://www.frontendmentor.io</span>
-                            </header>
-                            <div class="shortener__item-body">
-                                <span>https://rel.ink/k4lKyk</span>
-                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
-                                    type="button">Copy</button>
+                            <div class="shortener__item-header">
+                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
                             </div>
-                        </div>
-                        <div class="shortener__item">
-                            <header class="shortener__item-header">
-                                <span>https://www.frontendmentor.io</span>
-                            </header>
                             <div class="shortener__item-body">
-                                <span>https://rel.ink/k4lKyk</span>
+                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
                                 <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
                                     type="button">Copy</button>
                             </div>

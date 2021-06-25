@@ -1,7 +1,13 @@
+@use 'abstracts' as *;
+
 .burger-menu {
     position: relative;
 
     margin-left: auto;
+
+    @include mq(medium) {
+        display: none;
+    }
 }
 
 .burger-menu__header {
@@ -31,11 +37,11 @@
     }
 
     &::before {
-        top: 0.5rem;
+        top: 8px;
     }
 
     &::after {
-        bottom: 0.75rem;
+        bottom: 4px;
     }
 }
 
@@ -58,6 +64,11 @@
 
 .burger-menu__link {
     margin-bottom: 1.66em;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
 }
 
 .burger-menu__underline {

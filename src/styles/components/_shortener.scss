@@ -1,3 +1,5 @@
+@use 'abstracts' as *;
+
 .shortener {
     margin-top: -4.44em;
 }
@@ -11,12 +13,18 @@
     background-repeat: no-repeat;
     background-position: top right;
 
-    input {
-        width: 100%;
+    @include mq(medium) {
+        padding: 2.89em 3.58em;
+
+        background-image: url(/images/bg-shorten-desktop.svg);
     }
 
     label + input {
         margin-top: 0.89em;
+
+        @include mq(medium) {
+            margin-top: 0;
+        }
     }
 
     & + .shortener__body {
@@ -24,15 +32,42 @@
     }
 }
 
+.shortener__form {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include mq(medium) {
+        flex-direction: row;
+    }
+
+    & > input {
+        border-radius: 0.5em;
+    }
+}
+
 .shortener__body {
     & > * + * {
         margin-top: 1.33em;
+
+        @include mq(medium) {
+            margin-top: 0.89em;
+        }
     }
 }
 
 .shortener__item {
     background-color: var(--clr-neutral-white);
     border-radius: 0.28em;
+
+    @include mq(medium) {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 0.89em 1.33em 0.89em 1.78em;
+    }
 }
 
 .shortener__item-header {
@@ -40,17 +75,58 @@
 
     color: var(--clr-neutral-dark);
     border-bottom: 1px solid var(--clr-neutral-grayish-violet-low-opacity);
+
+    @include mq(medium) {
+        display: flex;
+        align-items: center;
+
+        border: none;
+        padding: 0;
+    }
 }
 
 .shortener__item-body {
     color: var(--clr-primary-cyan);
     padding: 0.38em 1em 1em;
 
-    button {
-        width: 100%;
-    }
-
     span + button {
         margin-top: 0.13em;
+
+        @include mq(medium) {
+            margin-top: 0;
+        }
+    }
+
+    @include mq(medium) {
+        display: flex;
+        align-items: center;
+
+        padding: 0;
+    }
+}
+
+.shortener__short-link {
+    min-width: 17ch;
+    margin-right: 1.2em;
+}
+
+.shortener__btn {
+    margin-top: 1em;
+
+    @include mq(medium) {
+        margin-top: 0;
+    }
+}
+
+.shortener__error {
+    display: none;
+
+    margin-top: 0.33em;
+    color: var(--clr-secondary-red);
+
+    @include mq(medium) {
+        position: absolute;
+        bottom: -1.8rem;
+        left: 0;
     }
 }

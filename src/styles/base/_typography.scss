@@ -1,4 +1,5 @@
 @use 'font-face' as *;
+@use 'abstracts' as *;
 
 body {
     font-family: "Poppins";
@@ -33,6 +34,12 @@ h2 {
     line-height: 2.25;
 }
 
+.input {
+    @include mq(medium) {
+        line-height: 1.8;
+    }
+}
+
 .footer__link,
 .statistic-block__description {
     font-size: var(--fs-200);
@@ -45,8 +52,25 @@ h2 {
     font-size: var(--fs-300);
 }
 
+.nav__link,
+.btn--size--small {
+    font-size: var(--fs-200);
+}
+
 .btn--size--medium {
     font-size: var(--fs-500);
+}
+
+.btn--size--tiny-long {
+    @include mq(medium) {
+        font-size: var(--fs-200);
+    }
+}
+
+.btn--size--fat-long {
+    @include mq(medium) {
+        font-size: var(--fs-300);
+    }
 }
 
 .statistic-block__title {
@@ -54,19 +78,37 @@ h2 {
 }
 
 .input,
+.input-wrapper,
 .shortener__item,
 .statistics__description {
     letter-spacing: 0.11px;
 }
 
-.input-error {
-    font-size: var(--fs-100);
-    line-height: 1.5;
-    letter-spacing: 0.08px;
+.input-wrapper,
+.shortener__error {
     font-style: italic;
 }
 
+.input-wrapper {
+    font-size: var(--fs-250);
+    line-height: 1.1;
+}
+
+.shortener__error {
+    font-size: var(--fs-100);
+    line-height: 1.5;
+    letter-spacing: 0.08px;
+}
+
+.btn,
+.nav__link,
 .burger-menu,
 .footer__block-info-title {
     font-weight: 700;
+}
+
+.shortener__long-link,
+.shortener__short-link {
+    line-height: 1.8;
+    letter-spacing: 0.15px;
 }

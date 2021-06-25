@@ -8,22 +8,95 @@ html {
     scroll-behavior: smooth;
 }
 
+main {
+    overflow: hidden;
+}
+
 .header {
     display: flex;
     padding: 2.22em 0;
 }
 
+.header__logo {
+    display: flex;
+    align-items: center;
+    margin-right: 2.5em;
+}
+
+.nav {
+    display: none;
+    width: 100%;
+
+    ul > * {
+        display: inline-block;
+    }
+
+    @include mq(medium) {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.nav__link {
+    color: var(--clr-neutral-grayish-violet);
+
+    & + & {
+        margin-left: 2em;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--clr-neutral-dark);
+    }
+}
+
+.nav__login {
+    margin-left: auto;
+
+    & .nav__link {
+        margin-right: 2.47em;
+    }
+}
+
 .intro {
-    overflow: hidden;
     text-align: center;
 
     padding-bottom: 9.33em;
+
+    @include mq(medium) {
+        display: flex;
+        flex-direction: row-reverse;
+
+        text-align: left;
+
+        margin-top: 2.11em;
+
+        padding-bottom: 8.5em;
+    }
 }
 
 .intro__img {
-    width: 31.9375rem;
+    max-width: 31.9375rem;
     margin-left: 5vw;
     margin-bottom: 2.05em;
+
+    @include mq(medium) {
+        max-width: 40.72rem;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-right: -14.44em;
+    }
+}
+
+.intro__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include mq(medium) {
+        align-items: flex-start;
+    }
 }
 
 .intro__title {
@@ -32,6 +105,8 @@ html {
 }
 
 .intro__description {
+    max-width: 43ch;
+
     color: var(--clr-neutral-grayish-violet);
     margin-bottom: 1.77em;
 }
@@ -117,9 +192,9 @@ html {
         margin-top: 0.67rem;
     }
 
-    &:hover,
-    &:focus,
-    &:active {
+    a:hover,
+    a:focus,
+    a:active {
         color: var(--clr-primary-cyan);
     }
 }
