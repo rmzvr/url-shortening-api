@@ -2,128 +2,188 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
-    <link rel="stylesheet" href="/styles/main.min.css">
+    <link rel="stylesheet" href="/styles/main.min.css" />
 </head>
 
 <body>
-    <header>
-        <img src="/images/logo.svg" alt="logo">
+    <div class="container">
+        <header class="header">
+            <img src="/images/logo.svg" alt="logo" />
 
-        <nav style="display: none;">
-            <ul>
-                <li>
-                    <a href="#">Features</a>
-                </li>
-                <li>
-                    <a href="#">Pricing</a>
-                </li>
-                <li>
-                    <a href="#">Resources</a>
-                </li>
-                <div>
+            <nav style="display: none">
+                <ul>
                     <li>
-                        <a href="#">Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Sign Up</a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
-
-        <details class="burger-menu">
-            <summary class="burger-menu__header">
-                <img class="burger-menu__btn" src="/images/icon-hamburger.svg" alt="">
-            </summary>
-            <nav class="burger-menu__body">
-                <ul class="burger-menu__links">
-                    <li class="burger-menu__link">
                         <a href="#">Features</a>
                     </li>
-                    <li class="burger-menu__link">
+                    <li>
                         <a href="#">Pricing</a>
                     </li>
-                    <li class="burger-menu__link">
+                    <li>
                         <a href="#">Resources</a>
                     </li>
-                    <hr>
-                    <li class="burger-menu__link">
+                </ul>
+                <ul>
+                    <li>
                         <a href="#">Login</a>
                     </li>
-                    <li class="burger-menu__link">
+                    <li>
                         <a href="#">Sign Up</a>
                     </li>
                 </ul>
             </nav>
-        </details>
 
-    </header>
+            <details class="burger-menu">
+                <summary class="burger-menu__header">
+                    <span class="burger-menu__btn"></span>
+                </summary>
+                <nav class="burger-menu__body">
+                    <ul class="burger-menu__links">
+                        <li class="burger-menu__link">
+                            <a href="#">Features</a>
+                        </li>
+                        <li class="burger-menu__link">
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li class="burger-menu__link">
+                            <a href="#">Resources</a>
+                        </li>
+                    </ul>
+                    <hr class="burger-menu__underline" />
+                    <ul class="burger-menu__login-block">
+                        <li class="burger-menu__link">
+                            <a href="#">Login</a>
+                        </li>
+                        <li class="burger-menu__link">
+                            <a href="#">Sign Up</a>
+                        </li>
+                    </ul>
+                </nav>
+            </details>
+        </header>
+    </div>
+
     <main>
         <section class="intro">
-            <img src="" alt="" class="intro__img">
-            <div class="intro__content">
-                <h1>More than just shorter links</h1>
-                <p>Build your brand’s recognition and get detailed insights
-                    on how your links are performing.</p>
-                <a href="#">Get Started</a>
+            <img src="/images/illustration-working.svg" alt="illustration of a girl at a computer" class="intro__img" />
+            <div class="container">
+                <div class="intro__content">
+                    <h1 class="intro__title">More than just shorter links</h1>
+                    <p class="intro__description">Build your brand’s recognition and get detailed insights on how your
+                        links are performing.</p>
+                    <a class="btn btn--size--medium btn--style--rounded btn--theme--grass" href="#shortener__header">Get
+                        Started</a>
+                </div>
             </div>
         </section>
 
-        <article class="shortener">
-            <header class="shortener__header">
-                <form action="">
-                    <label>
-                        <input type="text" placeholder="Shorten a link here...">
-                        <span>Please add a link</span>
-                    </label>
-                    <input type="submit" value="Shorten It!">
-                </form>
-            </header>
+        <div class="color-wrapper">
+            <div class="container">
+                <div class="shortener">
+                    <header class="shortener__header" id="shortener__header">
+                        <form action="POST">
+                            <label>
+                                <input class="input" type="text" placeholder="Shorten a link here..." />
+                                <span class="input-error">Please add a link</span>
+                            </label>
+                            <input class="btn btn--size--fat-long btn--style--sharpened btn--theme--grass" type="submit"
+                                value="Shorten It!" />
+                        </form>
+                    </header>
 
-            <div class="shortener__body">
-                <div class="shortener__item">
-                    <span>https://www.frontendmentor.io</span>
-                    <div>
-                        <span>https://rel.ink/k4lKyk</span>
-                        <button type="button">Copy</button>
+                    <div class="shortener__body">
+                        <div class="shortener__item">
+                            <header class="shortener__item-header">
+                                <span>https://www.frontendmentor.io</span>
+                            </header>
+                            <div class="shortener__item-body">
+                                <span>https://rel.ink/k4lKyk</span>
+                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
+                                    type="button">Copy</button>
+                            </div>
+                        </div>
+                        <div class="shortener__item">
+                            <header class="shortener__item-header">
+                                <span>https://www.frontendmentor.io</span>
+                            </header>
+                            <div class="shortener__item-body">
+                                <span>https://rel.ink/k4lKyk</span>
+                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
+                                    type="button">Copy</button>
+                            </div>
+                        </div>
+                        <div class="shortener__item">
+                            <header class="shortener__item-header">
+                                <span>https://www.frontendmentor.io</span>
+                            </header>
+                            <div class="shortener__item-body">
+                                <span>https://rel.ink/k4lKyk</span>
+                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
+                                    type="button">Copy</button>
+                            </div>
+                        </div>
+                        <div class="shortener__item">
+                            <header class="shortener__item-header">
+                                <span>https://www.frontendmentor.io</span>
+                            </header>
+                            <div class="shortener__item-body">
+                                <span>https://rel.ink/k4lKyk</span>
+                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
+                                    type="button">Copy</button>
+                            </div>
+                        </div>
+                        <div class="shortener__item">
+                            <header class="shortener__item-header">
+                                <span>https://www.frontendmentor.io</span>
+                            </header>
+                            <div class="shortener__item-body">
+                                <span>https://rel.ink/k4lKyk</span>
+                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
+                                    type="button">Copy</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
 
-        <section class="statistics">
-            <h2>Advanced Statistics</h2>
-            <p>Track how your links are performing across the web with our
-                advanced statistics dashboard.</p>
-            <article>
-                <h3>Brand Recognition</h3>
-                <p>Boost your brand recognition with each click. Generic links don’t
-                    mean a thing. Branded links help instil confidence in your content.</p>
-            </article>
-            <article>
-                <h3>Detailed Records</h3>
-                <p>Gain insights into who is clicking your links. Knowing when and where
-                    people engage with your content helps inform better decisions.</p>
-            </article>
-            <article>
-                <h3>Fully Customizable</h3>
-                <p>Improve brand awareness and content discoverability through customizable
-                    links, supercharging audience engagement.</p>
-            </article>
-        </section>
+            <section class="statistics">
+                <h2>Advanced Statistics</h2>
+                <p>Track how your links are performing across the web with our advanced statistics dashboard.</p>
+                <article>
+                    <h3>Brand Recognition</h3>
+                    <p>
+                        Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links
+                        help instil confidence in your content.
+                    </p>
+                </article>
+                <article>
+                    <h3>Detailed Records</h3>
+                    <p>
+                        Gain insights into who is clicking your links. Knowing when and where people engage with your
+                        content helps inform better decisions.
+                    </p>
+                </article>
+                <article>
+                    <h3>Fully Customizable</h3>
+                    <p>
+                        Improve brand awareness and content discoverability through customizable links, supercharging
+                        audience engagement.
+                    </p>
+                </article>
+            </section>
+        </div>
 
         <section>
             <h2>Boost your links today</h2>
-            <a href="#">Get Started</a>
+            <a href="#shortener__header">Get Started</a>
         </section>
     </main>
 
     <footer>
-        <img src="/images/logo.svg" alt="logo">
+        <img src="/images/logo.svg" alt="logo" />
 
         <nav>
             <ul class="footer__block-info">
@@ -154,27 +214,26 @@
             <ul>
                 <li>
                     <a href="#">
-                        <img src="/images/icon-facebook.svg" alt="facebook">
+                        <img src="/images/icon-facebook.svg" alt="facebook" />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="/images/icon-twitter.svg" alt="twitter">
+                        <img src="/images/icon-twitter.svg" alt="twitter" />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="/images/icon-pinterest.svg" alt="pinterest">
+                        <img src="/images/icon-pinterest.svg" alt="pinterest" />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="/images/icon-instagram.svg" alt="instagram">
+                        <img src="/images/icon-instagram.svg" alt="instagram" />
                     </a>
                 </li>
             </ul>
         </nav>
-
     </footer>
 </body>
 
