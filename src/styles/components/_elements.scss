@@ -7,8 +7,6 @@
     color: var(--clr-neutral-white);
 
     &--size--medium {
-        font-size: var(--fs-500);
-
         padding: 0.65em 2em;
     }
 
@@ -46,10 +44,6 @@
 .input {
     width: 100%;
 
-    font-size: var(--fs-300);
-    line-height: 2.25;
-    letter-spacing: 0.12px;
-
     padding: 0.38em 1em;
     border-radius: 0.28em;
 
@@ -72,10 +66,6 @@
     &-error {
         display: none;
 
-        font-size: var(--fs-100);
-        line-height: 1.5;
-        letter-spacing: 0.08px;
         color: var(--clr-secondary-red);
-        font-style: italic;
     }
 }
