@@ -17,7 +17,7 @@ sass.compiler = require('sass');
 const html = () => {
     return gulp.src('*.html')
         .pipe(urlPrefixer.html({
-            prefix: '/',
+            prefix: '/url-shortening-api',
             tags: ['script', 'link', 'img', 'a']
         }))
         .pipe(gulp.dest('build'))
@@ -35,7 +35,7 @@ const styles = () => {
         .pipe(cssnano())
         .pipe(rename({ suffix: '.min' }))
         .pipe(urlPrefixer.css({
-            prefix: '/'
+            prefix: '/url-shortening-api'
         }))
         .pipe(gulp.dest('build/styles'))
 }
