@@ -1,3 +1,5 @@
+@use 'abstracts' as *;
+
 .statistic-block {
     position: relative;
 
@@ -5,6 +7,13 @@
     border-radius: 0.28em;
 
     padding: 4.28em 1.8em 2.28em;
+
+    @include mq(medium) {
+        max-width: 21.88rem;
+        padding: 4.28em 1.78em 2.28em;
+
+        text-align: left;
+    }
 }
 
 .statistic-block__img {
@@ -23,6 +32,10 @@
     border-radius: 50%;
 
     background-color: var(--clr-primary-dark-violet);
+
+    @include mq(medium) {
+        left: calc(32px + 44px);
+    }
 }
 
 .statistic-block__title {

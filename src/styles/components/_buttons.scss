@@ -1,6 +1,7 @@
 @use 'abstracts' as *;
 
 .btn {
+    display: inline-block;
     cursor: pointer;
 
     color: var(--clr-neutral-white);

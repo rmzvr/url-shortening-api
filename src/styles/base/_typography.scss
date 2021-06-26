@@ -15,6 +15,10 @@ h1 {
 h2 {
     font-size: var(--fs-700);
     line-height: 1.778;
+
+    @include mq(medium) {
+        line-height: 1.2;
+    }
 }
 
 .intro__description {
@@ -74,7 +78,7 @@ h2 {
 }
 
 .statistic-block__title {
-    font-size: (--fs-600);
+    font-size: var(--fs-600);
 }
 
 .input,
@@ -111,4 +115,10 @@ h2 {
 .shortener__short-link {
     line-height: 1.8;
     letter-spacing: 0.15px;
+}
+
+.statistics__description {
+    @include mq(medium) {
+        font-size: var(--fs-350);
+    }
 }
