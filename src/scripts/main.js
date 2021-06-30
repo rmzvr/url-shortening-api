@@ -85,6 +85,8 @@ function renderUrlsFromLocalStorage() {
     if (localStorage.length) {
         for (let i = 0; i < localStorage.length; i++) {
             let localStorageItem = localStorage.key(i);
+
+            if (localStorageItem == 'undefined') return;
             renderShortenedUrl(localStorageItem);
         }
     }
