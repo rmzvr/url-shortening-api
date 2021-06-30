@@ -2,7 +2,7 @@ const FORM = document.querySelector('.shortener__form');
 const INPUT = FORM.input;
 const INPUT_ERROR_MESSAGE = document.querySelector('.shortener__error');
 const SHORTENER_TABLE = document.querySelector('.shortener__table-body');
-const urlRegEx = /^(http[s]?:\/\/(www\.)?|ftp:\/\/(www\.)?|www\.){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
+const urlRegEx = /^(http[s]?:\/\/(www\.)?){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
 const bitLyRegEx = /bit.ly/;
 
 // if local storage not empty, render ulrs
@@ -55,8 +55,7 @@ function showInputErrorMessage(boolean) {
 function pushShortenedUrlToLocalStorage(responseBody) {
     let { link, long_url } = responseBody;
 
-    if (localStorage.getItem(long_url)) return;
-    if (localStorage.getItem(long_url) === undefined) return;
+    if (localStorage.getItem(long_url) ?? true) return;
 
     localStorage.setItem(long_url, link);
     return long_url;
