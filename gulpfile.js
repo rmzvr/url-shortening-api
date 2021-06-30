@@ -42,9 +42,9 @@ const styles = () => {
 
 const scripts = () => {
     return gulp.src('src/scripts/*.js')
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        // .pipe(babel({
+        //     presets: ['@babel/env']
+        // }))
         .pipe(uglify())
         .pipe(concat('main.min.js'))
         .pipe(gulp.dest('build/scripts'))

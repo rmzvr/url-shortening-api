@@ -27,11 +27,31 @@
         }
     }
 
-    & + .shortener__body {
+    & + .shortener__table {
         margin-top: 1.33em;
     }
 }
 
+.shortener__error {
+    margin-top: 0.33em;
+    color: var(--clr-secondary-red);
+
+    @include mq(medium) {
+        position: absolute;
+        bottom: -1.8rem;
+        left: 0;
+    }
+}
+
+.shortener__btn {
+    margin-top: 1em;
+
+    @include mq(medium) {
+        margin-top: 0;
+    }
+}
+
+// SHORTENER FORM ================================>
 .shortener__form {
     position: relative;
 
@@ -48,7 +68,12 @@
     }
 }
 
-.shortener__body {
+// SHORTENER TABLE ================================>
+.shortener__table {
+    width: 100%;
+}
+
+.shortener__table-body {
     & > * + * {
         margin-top: 1.33em;
 
@@ -58,75 +83,53 @@
     }
 }
 
-.shortener__item {
-    background-color: var(--clr-neutral-white);
+.shortener__table-item {
+    display: flex;
+    flex-direction: column;
+
     border-radius: 0.28em;
 
+    text-align: left;
+    background-color: var(--clr-neutral-white);
+
     @include mq(medium) {
-        display: flex;
-        justify-content: space-between;
+        flex-direction: row;
 
         padding: 0.89em 1.33em 0.89em 1.78em;
     }
 }
 
-.shortener__item-header {
+.shortener__table-item-link-l {
     padding: 0.38em 1em;
 
-    color: var(--clr-neutral-dark);
     border-bottom: 1px solid var(--clr-neutral-grayish-violet-low-opacity);
 
+    color: var(--clr-neutral-dark);
+
     @include mq(medium) {
-        display: flex;
-        align-items: center;
+        padding: 0;
 
         border: none;
-        padding: 0;
     }
 }
 
-.shortener__item-body {
+.shortener__table-item-link-s {
+    padding: 0.38em 1em;
+
     color: var(--clr-primary-cyan);
-    padding: 0.38em 1em 1em;
-
-    span + button {
-        margin-top: 0.13em;
-
-        @include mq(medium) {
-            margin-top: 0;
-        }
-    }
 
     @include mq(medium) {
-        display: flex;
-        align-items: center;
-
+        margin-left: auto;
         padding: 0;
+
+        margin-right: 1.2em;
     }
 }
 
-.shortener__short-link {
-    min-width: 17ch;
-    margin-right: 1.2em;
-}
-
-.shortener__btn {
-    margin-top: 1em;
+.shortener__table-item-btn {
+    padding: 0 0.89em 0.89em;
 
     @include mq(medium) {
-        margin-top: 0;
-    }
-}
-
-.shortener__error {
-    display: none;
-
-    margin-top: 0.33em;
-    color: var(--clr-secondary-red);
-
-    @include mq(medium) {
-        position: absolute;
-        bottom: -1.8rem;
-        left: 0;
+        padding: 0;
     }
 }

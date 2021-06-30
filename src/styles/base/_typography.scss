@@ -34,8 +34,14 @@ h2 {
 }
 
 .input,
-.shortener__item {
+.shortener__table-item {
     line-height: 2.25;
+}
+
+.shortener__table-item {
+    @include mq(medium) {
+        line-height: 2.5;
+    }
 }
 
 .input {
