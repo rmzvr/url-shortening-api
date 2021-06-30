@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/url-shortening-api/images/favicon-32x32.png" />
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
     <link rel="stylesheet" href="/url-shortening-api/styles/main.min.css" />
+    <script src="/url-shortening-api/scripts/main.min.js" defer></script>
 </head>
 
 <body>
@@ -87,57 +88,20 @@
             <div class="container">
                 <div class="shortener">
                     <header class="shortener__header" id="shortener__header">
-                        <form class="shortener__form" action="POST">
-                            <input class="input" type="text" placeholder="Shorten a link here..." />
-                            <span class="shortener__error">Please add a link</span>
+                        <form class="shortener__form">
+                            <input class="shortener__input input" name="input" type="text"
+                                placeholder="Shorten a link here..." />
+                            <span class="shortener__error hidden">Please add a correct link</span>
                             <input
                                 class="shortener__btn btn btn--size--fat-long btn--style--sharpened btn--theme--grass"
                                 type="submit" value="Shorten It!" />
                         </form>
                     </header>
 
-                    <div class="shortener__body">
-                        <div class="shortener__item">
-                            <div class="shortener__item-header">
-                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
-                            </div>
-                            <div class="shortener__item-body">
-                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
-                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
-                                    type="button">Copy</button>
-                            </div>
-                        </div>
-                        <div class="shortener__item">
-                            <div class="shortener__item-header">
-                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
-                            </div>
-                            <div class="shortener__item-body">
-                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
-                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
-                                    type="button">Copy</button>
-                            </div>
-                        </div>
-                        <div class="shortener__item">
-                            <div class="shortener__item-header">
-                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
-                            </div>
-                            <div class="shortener__item-body">
-                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
-                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
-                                    type="button">Copy</button>
-                            </div>
-                        </div>
-                        <div class="shortener__item">
-                            <div class="shortener__item-header">
-                                <span class="shortener__long-link">https://www.frontendmentor.io</span>
-                            </div>
-                            <div class="shortener__item-body">
-                                <span class="shortener__short-link">https://rel.ink/k4lKyk</span>
-                                <button class="btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
-                                    type="button">Copy</button>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="shortener__table">
+                        <tbody class="shortener__table-body">
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
