@@ -8,9 +8,8 @@ const urlRegEx = /^(http[s]?:\/\/(www\.)?){1}(?!(bit.ly))([0-9A-Za-z-\.@:%_\+~#=
 // if local storage not empty, render ulrs
 renderUrlsFromLocalStorage();
 
-if (SHORTENER_TABLE.innerHTML == '') {
-    let btnsList = defineBtnsList();
-    copyShortenedUrl(btnsList);
+if (SHORTENER_TABLE.innerHTML !== '') {
+    setButtonsCopyFuncionality();
 }
 
 FORM.reset();
@@ -28,8 +27,7 @@ FORM.addEventListener('submit', event => {
     getShortenUrlResponse(INPUT.value)
         .then(responseBody => pushShortenedUrlToLocalStorage(responseBody))
         .then(longURL => renderShortenedUrl(longURL))
-        .then(() => defineBtnsList())
-        .then(list => copyShortenedUrl(list))
+        .then(() => setButtonsCopyFuncionality())
         .catch(error => console.log(error))
 
     FORM.reset();
@@ -90,17 +88,14 @@ function renderUrlsFromLocalStorage() {
     }
 }
 
-function defineBtnsList() {
-    tableBtns = document.querySelectorAll('.table-btn');
-    return tableBtns;
-}
+function setButtonsCopyFuncionality() {
+    let tableBtns = document.querySelectorAll('.table-btn');
 
-function copyShortenedUrl(list) {
-    for (let i = 0; i < list.length; i++) {
-        const btn = list[i];
+    for (let i = 0; i < tableBtns.length; i++) {
+        const btn = tableBtns[i];
 
         btn.addEventListener('click', event => {
-            resetButtonsCopiedStyle(list);
+            resetButtonsCopiedStyle(tableBtns);
 
             // copy shortened link
             navigator.clipboard.writeText(event.target.parentNode.previousElementSibling.innerText)
