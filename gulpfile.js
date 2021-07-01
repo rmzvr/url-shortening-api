@@ -15,7 +15,7 @@ const sass = require('gulp-dart-sass');
 sass.compiler = require('sass');
 
 const html = () => {
-    return gulp.src('*.html')
+    return gulp.src('src/*.html')
         .pipe(urlPrefixer.html({
             prefix: '/url-shortening-api',
             tags: ['script', 'link', 'img', 'a']
@@ -33,7 +33,6 @@ const styles = () => {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(cssnano())
-        .pipe(rename({ suffix: '.min' }))
         .pipe(urlPrefixer.css({
             prefix: '/url-shortening-api'
         }))
@@ -46,7 +45,7 @@ const scripts = () => {
         //     presets: ['@babel/env']
         // }))
         .pipe(uglify())
-        .pipe(concat('main.min.js'))
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('build/scripts'))
 }
 
@@ -76,7 +75,7 @@ const deployBuild = () => {
 }
 
 const watch = () => {
-    gulp.watch('*.html', html);
+    gulp.watch('src/*.html', html);
     gulp.watch('src/fonts/*.ttf', fonts);
     gulp.watch('src/styles/**/*.scss', styles);
     gulp.watch('src/scripts/*.js', scripts);
