@@ -73,9 +73,14 @@
 .burger-menu__link {
     margin-bottom: 1.66em;
 
-    &:hover,
-    &:focus {
-        text-decoration: underline;
+    a {
+        &:hover {
+            color: var(--clr-primary-cyan);
+        }
+
+        &:active {
+            color: var(--clr-neutral-white);
+        }
     }
 }
 
