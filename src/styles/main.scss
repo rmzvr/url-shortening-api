@@ -108,6 +108,10 @@ main {
 .intro__title {
     color: var(--clr-neutral-dark);
     margin-bottom: 0.35em;
+
+    @include mq(medium) {
+        margin-bottom: 0.06em;
+    }
 }
 
 .intro__description {
@@ -115,6 +119,10 @@ main {
 
     color: var(--clr-neutral-grayish-violet);
     margin-bottom: 1.77em;
+
+    @include mq(medium) {
+        margin-bottom: 1.73em;
+    }
 }
 
 .statistics {
