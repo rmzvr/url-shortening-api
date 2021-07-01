@@ -15,6 +15,7 @@ main {
 
 .header {
     display: flex;
+    align-items: center;
     padding: 2.22em 0;
 }
 
@@ -48,6 +49,10 @@ main {
     a:hover,
     a:focus {
         color: var(--clr-neutral-dark);
+    }
+
+    a:focus {
+        text-decoration: underline;
     }
 }
 
@@ -296,10 +301,13 @@ main {
         margin-top: 0.67rem;
     }
 
-    a:hover,
-    a:focus,
-    a:active {
+    a:hover {
         color: var(--clr-primary-cyan);
+    }
+
+    a:focus {
+        color: var(--clr-primary-cyan);
+        text-decoration: underline;
     }
 }
 
@@ -317,11 +325,18 @@ main {
     li {
         display: inline;
 
-        &:hover,
-        &:focus,
-        &:active {
-            path {
-                fill: var(--clr-primary-cyan);
+        a {
+            &:hover,
+            &:focus {
+                path {
+                    fill: var(--clr-primary-cyan);
+                }
+            }
+
+            &:active {
+                path {
+                    fill: var(--clr-neutral-white);
+                }
             }
         }
     }

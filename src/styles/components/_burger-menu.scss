@@ -1,6 +1,9 @@
 @use 'abstracts' as *;
 
 .burger-menu {
+    width: 1.5rem;
+    height: 1.44rem;
+
     position: relative;
 
     margin-left: auto;
@@ -11,12 +14,17 @@
 }
 
 .burger-menu__header {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
     list-style-type: none;
     cursor: pointer;
 }
 
 .burger-menu__btn {
-    display: inline-block;
+    display: block;
 
     width: 1.5rem;
     height: 0.1875rem;
@@ -37,18 +45,18 @@
     }
 
     &::before {
-        top: 8px;
+        top: 0;
     }
 
     &::after {
-        bottom: 4px;
+        bottom: 0;
     }
 }
 
 .burger-menu__body {
     position: absolute;
 
-    min-width: 20.4375rem;
+    width: min(90vw, 20.4375rem);
 
     top: 3.3125rem;
     right: 0;

@@ -46,10 +46,18 @@
     &--theme--grass {
         background-color: var(--clr-primary-cyan);
 
-        &:hover,
-        &:active,
-        &:focus {
+        transition: 0.1s;
+
+        &:hover {
             background-color: var(--clr-primary-cyan-hover);
+        }
+
+        &:active {
+            background-color: var(--clr-primary-cyan);
+        }
+
+        &:focus {
+            background-color: var(--clr-primary-cyan-focus);
         }
     }
 
