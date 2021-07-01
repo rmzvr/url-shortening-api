@@ -3,13 +3,12 @@ const INPUT = FORM.input;
 const INPUT_ERROR_MESSAGE = document.querySelector('.shortener__error');
 const SHORTENER_TABLE = document.querySelector('.shortener__table-body');
 
-const urlRegEx = /^(http[s]?:\/\/(www\.)?){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
-const bitLyRegEx = /bit.ly/;
+const urlRegEx = /^(http[s]?:\/\/(www\.)?){1}(?!(bit.ly))([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
 
 // if local storage not empty, render ulrs
 renderUrlsFromLocalStorage();
 
-if (SHORTENER_TABLE.innerHTML) {
+if (SHORTENER_TABLE.innerHTML == '') {
     let btnsList = defineBtnsList();
     copyShortenedUrl(btnsList);
 }
@@ -19,11 +18,10 @@ FORM.reset();
 FORM.addEventListener('submit', event => {
     event.preventDefault();
 
-    //! fix validate func
-    if (!INPUT.value || !validateInputValue(INPUT.value)) {
+    if (!validateInputValue(INPUT.value)) {
         showInputErrorMessage(true);
         return;
-    };
+    }
 
     showInputErrorMessage(false);
 
@@ -37,10 +35,9 @@ FORM.addEventListener('submit', event => {
     FORM.reset();
 });
 
-//! fix validate func
 function validateInputValue(value) {
-    if (value.match(urlRegEx) && !value.match(bitLyRegEx)) return true;
-    return false;
+    if (!value || !value.match(urlRegEx)) return;
+    return true;
 }
 
 function showInputErrorMessage(boolean) {
