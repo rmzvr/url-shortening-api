@@ -2,6 +2,7 @@ const FORM = document.querySelector('.shortener__form');
 const INPUT = FORM.input;
 const INPUT_ERROR_MESSAGE = document.querySelector('.shortener__error');
 const SHORTENER_TABLE = document.querySelector('.shortener__table-body');
+
 const urlRegEx = /^(http[s]?:\/\/(www\.)?){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
 const bitLyRegEx = /bit.ly/;
 
@@ -55,9 +56,9 @@ function showInputErrorMessage(boolean) {
 function pushShortenedUrlToLocalStorage(responseBody) {
     let { link, long_url } = responseBody;
 
-    if (localStorage.getItem(long_url) ?? true) return;
+    if (sessionStorage.getItem(long_url) || !responseBody.long_url) return;
 
-    localStorage.setItem(long_url, link);
+    sessionStorage.setItem(long_url, link);
     return long_url;
 }
 
@@ -70,7 +71,7 @@ function renderShortenedUrl(longURL) {
 
     tableRow.innerHTML = `
         <td class="shortener__table-item-link-l">${longURL}</td>
-        <td class="shortener__table-item-link-s">${localStorage.getItem(longURL)}</td>
+        <td class="shortener__table-item-link-s">${sessionStorage.getItem(longURL)}</td>
         <td class="shortener__table-item-btn">
             <button class="table-btn btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
             type="button">Copy</button>
@@ -82,9 +83,9 @@ function renderShortenedUrl(longURL) {
 }
 
 function renderUrlsFromLocalStorage() {
-    if (localStorage.length) {
-        for (let i = 0; i < localStorage.length; i++) {
-            let localStorageItem = localStorage.key(i);
+    if (sessionStorage.length) {
+        for (let i = 0; i < sessionStorage.length; i++) {
+            let localStorageItem = sessionStorage.key(i);
 
             if (localStorageItem == 'undefined') return;
             renderShortenedUrl(localStorageItem);
