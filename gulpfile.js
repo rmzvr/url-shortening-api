@@ -1,25 +1,28 @@
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
-const urlPrefixer = require('gulp-url-prefixer');
+const urlprefixer = require('gulp-url-prefixer');
 const cssnano = require('gulp-cssnano');
 const babel = require('gulp-babel');
-const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const image = require('gulp-image');
 const del = require('del');
-const browserSync = require('browser-sync').create();
+const sync = require('browser-sync').create();
 const deploy = require('gulp-gh-pages');
+const util = require('gulp-util');
+const path = require('path');
 const sass = require('gulp-dart-sass');
 
 sass.compiler = require('sass');
 
+const rootPath = path.basename(__dirname);
+
 const html = () => {
     return gulp.src('src/*.html')
-        .pipe(urlPrefixer.html({
-            prefix: '/url-shortening-api',
+        .pipe(util.env.prod ? urlprefixer.html({
+            prefix: `/${rootPath}`,
             tags: ['script', 'link', 'img', 'a']
-        }))
+        }) : util.noop())
         .pipe(gulp.dest('build'))
 }
 
@@ -31,42 +34,42 @@ const fonts = () => {
 const styles = () => {
     return gulp.src('src/styles/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(cssnano())
-        .pipe(urlPrefixer.css({
-            prefix: '/url-shortening-api'
-        }))
+        .pipe(util.env.prod ? autoprefixer() : util.noop())
+        .pipe(util.env.prod ? cssnano() : util.noop())
+        .pipe(util.env.prod ? urlprefixer.css({
+            prefix: `/${rootPath}`
+        }) : util.noop())
         .pipe(gulp.dest('build/styles'))
 }
 
 const scripts = () => {
     return gulp.src('src/scripts/*.js')
-        // .pipe(babel({
-        //     presets: ['@babel/env']
-        // }))
-        .pipe(uglify())
+        .pipe(babel({
+            plugins: ['@babel/transform-runtime']
+        }))
+        .pipe(util.env.prod ? uglify() : util.noop())
         .pipe(concat('main.js'))
         .pipe(gulp.dest('build/scripts'))
 }
 
 const images = () => {
     return gulp.src('src/images/**/*')
-        .pipe(image())
+        .pipe(util.env.prod ? image() : util.noop())
         .pipe(gulp.dest('build/images'))
 }
 
 const server = () => {
-    browserSync.init({
+    sync.init({
         server: {
             baseDir: "build"
         },
         notify: false
     });
-    browserSync.watch('build', browserSync.reload);
+    sync.watch('build', sync.reload);
 }
 
-const deleteBuild = (cb) => {
-    return del('build/').then(() => { cb() });
+function deleteBuild() {
+    return del('build');
 }
 
 const deployBuild = () => {
@@ -82,10 +85,14 @@ const watch = () => {
     gulp.watch('src/images/**/*.*', images);
 }
 
-gulp.task(deployBuild);
-
 exports.default = gulp.series(
     deleteBuild,
     gulp.parallel(html, fonts, styles, scripts, images),
     gulp.parallel(watch, server)
+)
+
+exports.build = gulp.series(
+    deleteBuild,
+    gulp.parallel(html, fonts, styles, scripts, images),
+    deployBuild
 )
