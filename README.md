@@ -73,11 +73,7 @@ Users should be able to:
 
 ### What I learned
 
-- soon
-
-### Continued development
-
-- soon
+Creating this project was my first time using mobile-first workflow. Also, it was my first experience using third-party API. For sure, I improved my configuration file gulp and deeply understood how it works.
 
 ## Author
 
