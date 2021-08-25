@@ -65,8 +65,12 @@ function renderShortenedUrl(longURL) {
     tableRow.classList.add('shortener__table-item');
 
     tableRow.innerHTML = `
-        <td class="shortener__table-item-link-l">${longURL}</td>
-        <td class="shortener__table-item-link-s">${sessionStorage.getItem(longURL)}</td>
+        <td class="shortener__table-item-link-l">
+          <span>${longURL}</span>
+        </td>
+        <td class="shortener__table-item-link-s">
+          <span>${sessionStorage.getItem(longURL)}</span>
+        </td>
         <td class="shortener__table-item-btn">
             <button class="table-btn btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
             type="button">Copy</button>

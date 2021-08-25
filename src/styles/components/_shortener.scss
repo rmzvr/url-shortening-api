@@ -100,16 +100,26 @@
 }
 
 .shortener__table-item-link-l {
+    max-height: 2.81rem;
+
     padding: 0.38em 1em;
 
     border-bottom: 1px solid var(--clr-neutral-grayish-violet-low-opacity);
-
     color: var(--clr-neutral-dark);
 
+    overflow: hidden;
+    
     @include mq(medium) {
+        max-width: 50%;
+
         padding: 0;
 
         border: none;
+    }
+
+    span {
+      max-width: 100%;
+      word-wrap: anywhere;
     }
 }
 
