@@ -1,6 +1,10 @@
 const FORM=document.querySelector(".shortener__form"),INPUT=FORM.input,INPUT_ERROR_MESSAGE=document.querySelector(".shortener__error"),SHORTENER_TABLE=document.querySelector(".shortener__table-body"),urlRegEx=/^(http[s]?:\/\/(www\.)?){1}(?!(bit.ly))([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;function validateInputValue(e){if(e&&e.match(urlRegEx))return!0}function showInputErrorMessage(e){e?(FORM.input.classList.add("invalid"),INPUT_ERROR_MESSAGE.classList.remove("hidden")):(FORM.input.classList.remove("invalid"),INPUT_ERROR_MESSAGE.classList.add("hidden"))}function pushShortenedUrlToLocalStorage(e){var{link:t,long_url:n}=e;if(!sessionStorage.getItem(n)&&e.long_url)return sessionStorage.setItem(n,t),n}function renderShortenedUrl(t){if(t){let e=document.createElement("tr");return e.classList.add("shortener__table-item"),e.innerHTML=`
-        <td class="shortener__table-item-link-l">${t}</td>
-        <td class="shortener__table-item-link-s">${sessionStorage.getItem(t)}</td>
+        <td class="shortener__table-item-link-l">
+          <span>${t}</span>
+        </td>
+        <td class="shortener__table-item-link-s">
+          <span>${sessionStorage.getItem(t)}</span>
+        </td>
         <td class="shortener__table-item-btn">
             <button class="table-btn btn btn--size--tiny-long btn--style--sharpened btn--theme--grass"
             type="button">Copy</button>
