@@ -55,7 +55,7 @@ Users should be able to:
 
 
 - Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-using-gulp-sass-js-api-bem-html-ZdPAS8ljr)
-- Live Site URL: [Github Pages](https://rzvr.github.io/url-shortening-api/)
+- Live Site URL: [Github Pages](https://rmzvr.github.io/url-shortening-api/)
 
 ## My process
 
@@ -77,7 +77,7 @@ Creating this project was my first time using mobile-first workflow. Also, it wa
 
 ## Author
 
-- Github - [rzvr](https://github.com/rzvr)
-- Codewars - [rzvr](https://www.codewars.com/users/rzvr)
-- LinkedIn - [Roman Zvir](https://www.linkedin.com/in/roman-zvir-8a4394214)
-- Frontend Mentor - [rzvr](https://www.frontendmentor.io/profile/rzvr)
+- [Github](https://github.com/rmzvr)
+- [LinkedIn](https://www.linkedin.com/in/rmzvr)
+- [Codewars](https://www.codewars.com/users/rmzvr)
+- [Frontend Mentor](https://www.frontendmentor.io/profile/rmzvr)
